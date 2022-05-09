@@ -225,6 +225,41 @@ input{
     80%{top:10%; left:20%;}
     100%{top:30%; left:20%; }
     }
+    .timer{
+        background-color:#333; 
+        width:300px;
+        height:50px;
+        position:fixed;
+        right: 10%;
+      }
+      
+      
+      .timer span{
+        display:block;
+        background:repeating-linear-gradient(-45deg, #000, rgba(0, 0, 0, 0) 25px, red 25px, #FFF 50px);
+        width:300px;
+        height:50px;
+        animation:timer 15s linear;
+        -webkit-animation:timer 15s linear;
+}
+      
+      .timer span:before{  
+        content:"TIME LEFT";
+        display:block;
+        position:absolute; z-index:3;
+        left:0; 
+        right:0;
+        top:0;
+        bottom:0;
+        text-align:center;
+        line-height:50px;
+        font-size:25px;
+        color:white;
+      }
+      @keyframes timer{
+      0%{width:10px;}
+      100%{width:300px; display:block;}
+      }
   
 
 
