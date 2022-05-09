@@ -11,13 +11,37 @@ body{
     height: 100vh;
     
 }
+.gameover {
+	position: fixed;
+	z-index: 100000;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba(0,0,0,0.8);
+	animation: gameover 15s linear forwards;
+	font-size: 80px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	text-indent: 0;
+	line-height: 500px;
+	-webkit-animation: gameover 15s linear forwards;
+}
+@keyframes gameover{
+    0%{left:-5000px;bottom:100%;}
+    97%{left:-5000px;bottom:100%;}
+    100%{ left:0px;}
+    }
+
+
 h1{
     text-align: center;
     color: white;
     text-transform: uppercase;
 }
 .input-circle ~ .pajaro{
-    opacity:0;
+   
     transition:0.3s  cubic-bezier(0,.43,1,0);
     animation: move 8s infinite alternate;
   }
@@ -33,28 +57,9 @@ h1{
     -o-border-radius: 50%;
     transition:0.3s  cubic-bezier(0,.43,1,0);
     animation: move 8s infinite alternate;
-  
+    -webkit-animation: move 8s infinite alternate;
 }
-/* @keyframes  bouncy {
-    0%{ transform:translateY(0) ; 
-        -webkit-transform:translateY(0) ;
-         -moz-transform:translateY(0) ; 
-         -ms-transform:translateY(0) ; 
-         -o-transform:translateY(0) ;
-}
-    50%{
-        transform:translateY(-150px);
-        -webkit-transform: translateY(150px);
-       
-}
-      
 
-    100%{ transform:translateY(0); 
-        -webkit-transform:translateY(0); 
-        -moz-transform:translateY(0); 
-        -ms-transform:translateY(0); 
-        -o-transform:translateY(0); }
-}  */
 
 .list .ball1{
     top:50px;
@@ -114,6 +119,7 @@ h1{
     -moz-transform:scale(0.5);
     -ms-transform:scale(0.5);
     -o-transform:scale(0.5);
+    
 }
 .list .ball7{
     top:100px;
