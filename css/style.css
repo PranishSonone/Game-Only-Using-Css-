@@ -6,11 +6,38 @@ box-sizing: border-box;
 }
 body{
     background-color: black;
+    counter-reset: checkBox-counter 0;
 }
 .list{
     height: 100vh;
+    counter-reset: checkBox-length;
     
 }
+
+.list input[type="checkBox"]:after {
+    counter-increment: checkBox-length;
+    content: counter(checkBox-length);
+    position: relative;
+    top: 15px;
+}
+.list input:checked {
+    counter-increment: checkBox-counter;
+}
+main:after {
+    color: white;
+    font-size: 20px;
+    content: "your score: " counter(checkBox-counter) ;
+    display: block;
+    position: absolute;
+    top: 10%;
+	left: 45%;
+}
+
+
+
+
+ 
+
 .gameover {
 	position: fixed;
 	z-index: 100000;
@@ -41,10 +68,13 @@ h1{
     text-transform: uppercase;
 }
 .input-circle ~ .pajaro{
-   
     transition:0.3s  cubic-bezier(0,.43,1,0);
     animation: move 8s infinite alternate;
-  }
+    -webkit-transition:0.3s  cubic-bezier(0,.43,1,0);
+    -moz-transition:0.3s  cubic-bezier(0,.43,1,0);
+    -ms-transition:0.3s  cubic-bezier(0,.43,1,0);
+    -o-transition:0.3s  cubic-bezier(0,.43,1,0);
+}
 
 .list .pajaro{
     list-style: none;
@@ -84,11 +114,19 @@ h1{
 .list .ball2{
     top:100px;
     animation-delay: -1s;
-    transform:scale(0.8); 
+    transform:scale(0.8);
     background-color: orangered;
-
-   
+    animation: round2 4s infinite alternate;
+    -webkit-animation: round2 4s infinite alternate;
 }
+@keyframes round2{
+    0%{left:0%;}
+    20%{left:10%;top:55%; }
+    40%{top:44%; left:50%;}
+    60%{top:64%;left:70%;}
+    80%{top:50%; left:50%;}
+    100%{top:30%; left:20%; }
+    }
 .list .ball3{
     top:200px;
     animation-delay: -3s;
@@ -153,7 +191,7 @@ h1{
 }  */
 
 input{
-    display: none;
+  visibility: hidden;
 }
 .input-circle1:checked ~ .ball1{
     display: none;
