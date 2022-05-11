@@ -14,7 +14,7 @@ body{
     
 }
 
-.list input[type="checkBox"]:after {
+.list input[type="checkBox"] {
     counter-increment: checkBox-length;
     content: counter(checkBox-length);
     position: relative;
